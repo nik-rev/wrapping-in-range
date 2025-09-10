@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+  schedule: [cron: "* 0 * * *"]
+
+env:
+  RUSTFLAGS: -Dwarnings
+
+jobs:
+  cargo-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - run: cargo test --workspace --all-targets
+
+  cargo-clippy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - run: cargo clippy --workspace --all-targets
+
+  cargo-fmt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - run: cargo fmt --check
