@@ -462,7 +462,7 @@ mod tests {
         }
 
         #[test]
-        fn add_assign_wraps_correctly(n in RANGE, x in outside_of_range()) {
+        fn add_assign(n in RANGE, x in outside_of_range()) {
             let mut val = WrappingInRange(n, RANGE);
             let mut manual_val = n;
             val += x;
@@ -471,7 +471,7 @@ mod tests {
         }
 
         #[test]
-        fn sub_assign_wraps_correctly(n in RANGE, x in outside_of_range()) {
+        fn sub_assign(n in RANGE, x in outside_of_range()) {
             let mut val = WrappingInRange(n, RANGE);
             let mut manual_val = n;
             val -= x;
@@ -480,7 +480,7 @@ mod tests {
         }
 
         #[test]
-        fn mul_assign_wraps_correctly(n in RANGE, x in outside_of_range()) {
+        fn mul_assign(n in RANGE, x in outside_of_range()) {
             let mut val = WrappingInRange(n, RANGE);
             let mut manual_val = n;
             val *= x;
@@ -489,7 +489,7 @@ mod tests {
         }
 
         #[test]
-        fn div_assign_wraps_correctly(n in outside_of_range(), x in outside_of_range().prop_filter("non-zero", |&x| x != 0)) {
+        fn div_assign(n in outside_of_range(), x in outside_of_range().prop_filter("non-zero", |&x| x != 0)) {
             let mut val = WrappingInRange(n, RANGE);
             let mut manual_val = n;
             val /= x;
@@ -498,7 +498,7 @@ mod tests {
         }
 
         #[test]
-        fn rem_assign_wraps_correctly(n in outside_of_range(), x in outside_of_range().prop_filter("non-zero", |&x| x != 0)) {
+        fn rem_assign(n in outside_of_range(), x in outside_of_range().prop_filter("non-zero", |&x| x != 0)) {
             let mut val = WrappingInRange(n, RANGE);
             let mut manual_val = n;
             val %= x;
@@ -507,7 +507,7 @@ mod tests {
         }
 
         #[test]
-        fn shl_assign_wraps_correctly(n in RANGE, x in 0u32..=15) {
+        fn shl_assign(n in RANGE, x in 0u32..=15) {
             let mut val = WrappingInRange(n, RANGE);
             let mut manual_val = n;
             val <<= x;
@@ -516,7 +516,7 @@ mod tests {
         }
 
         #[test]
-        fn shr_assign_wraps_correctly(n in RANGE, x in 0u32..=15) {
+        fn shr_assign(n in RANGE, x in 0u32..=15) {
             let mut val = WrappingInRange(n, RANGE);
             let mut manual_val = n;
             val >>= x;
