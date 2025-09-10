@@ -315,7 +315,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5c573471f125075647d03df72e026074b7203790d41351cd6edc96f46bcccd36"
 
 [[package]]
-name = "wrapping-in-range"
+name = "wrapping_in_range"
 version = "0.1.0"
 dependencies = [
  "num-traits",

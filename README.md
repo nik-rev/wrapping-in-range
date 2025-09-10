@@ -9,7 +9,6 @@ These arithmetic operations act just like `std`'s `.wrapping_sub()`, `.wrapping_
 # Examples
 
 ```rust
-use std::ops::Range;
 use wrapping_in_range::WrappingInRange;
 
 let w = |i: i16| WrappingInRange(i, -1..=1);

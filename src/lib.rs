@@ -5,7 +5,6 @@
 //! # Examples
 //!
 //! ```
-//! # use std::ops::Range;
 //! use wrapping_in_range::WrappingInRange;
 //!
 //! let w = |i: i16| WrappingInRange(i, -1..=1);
